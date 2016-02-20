@@ -9,11 +9,13 @@ TARGETS:=$(OUTPUT).elf $(OUTPUT).lst $(OUTPUT).map
 
 all: $(TARGETS)
 
-CFLAGS:=-Wall -march=armv6-m -mthumb
+INCLUDES:=-I.
+CFLAGS:=-Wall -march=armv6-m -mthumb $(INCLUDES)
 LDFLAGS:=-nostartfiles -T mkl25z4.ld -Wl,-Map=$(OUTPUT).map
 
 SOURCES:= \
 		_startup.c \
+		interrupts.c \
 		main.c \
 
 OBJECTS:=$(SOURCES:%.c=%.o)
