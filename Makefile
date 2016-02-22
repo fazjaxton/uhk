@@ -9,8 +9,9 @@ TARGETS:=$(OUTPUT).elf $(OUTPUT).lst $(OUTPUT).map
 
 all: $(TARGETS)
 
+OPTIMIZATION:=-Og
 INCLUDES:=-I.
-CFLAGS:=-Wall -march=armv6-m -mthumb $(INCLUDES)
+CFLAGS:=-Wall -march=armv6-m -mthumb $(OPTIMIZATION) $(INCLUDES)
 LDFLAGS:=-nostartfiles -T mkl25z4.ld -Wl,-Map=$(OUTPUT).map
 
 SOURCES:= \
