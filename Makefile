@@ -17,6 +17,7 @@ SOURCES:= \
 		_startup.c \
 		interrupts.c \
 		main.c \
+		tpm.c \
 
 OBJECTS:=$(SOURCES:%.c=%.o)
 
