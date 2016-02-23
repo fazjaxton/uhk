@@ -16,6 +16,7 @@ LDFLAGS:=-nostartfiles -T mkl25z4.ld -Wl,-Map=$(OUTPUT).map
 
 SOURCES:= \
 		_startup.c \
+		clock.c \
 		interrupts.c \
 		main.c \
 		tpm.c \

@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <clock.h>
 #include <interrupts.h>
 #include <limits.h>
 #include <stdint.h>
@@ -24,8 +25,6 @@ static struct tpm_regs_t * const tpm_regs[TPM_COUNT] =
     { (void *)0x40038000, (void *)0x40039000};
 static const vector_t tpm_vectors[TPM_COUNT] =
     { VECTOR_TPM0, VECTOR_TPM1 };
-
-#define CPU_HZ                          4000000
 
 void tpm_init(tpm_idx_t idx, uint32_t hz, isr_t handler)
 {
