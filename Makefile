@@ -23,6 +23,9 @@ SOURCES:= \
 
 OBJECTS:=$(SOURCES:%.c=%.o)
 
+DEPS:=$(SOURCES:%.c=%.d)
+-include $(DEPS)
+
 %.elf %.map: $(OBJECTS)
 	$(LD) $(LDFLAGS) -o $@ $^
 
@@ -30,10 +33,10 @@ OBJECTS:=$(SOURCES:%.c=%.o)
 	$(OBJDUMP) -S $< > $@
 
 clean:
-	rm -f $(TARGETS) $(OBJECTS)
+	rm -f $(TARGETS) $(OBJECTS) $(DEPS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -MMD -c -o $@ $<
 
 .DEFAULT_GOAL:=all
 .PHONY: all clean
