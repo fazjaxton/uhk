@@ -35,4 +35,7 @@ clean:
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
+.DEFAULT_GOAL:=all
 .PHONY: all clean
+# Don't delete objects as intermediate files
+.SECONDARY: $(OBJECTS)
