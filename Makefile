@@ -19,6 +19,7 @@ SOURCES:= \
 		clock.c \
 		interrupts.c \
 		main.c \
+		pinmux.c \
 		tpm.c \
 
 OBJECTS:=$(SOURCES:%.c=%.o)
