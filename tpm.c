@@ -25,6 +25,8 @@ static struct tpm_regs_t * const tpm_regs[TPM_COUNT] =
     { (void *)0x40038000, (void *)0x40039000};
 static const vector_t tpm_vectors[TPM_COUNT] =
     { VECTOR_TPM0, VECTOR_TPM1 };
+static const clk_gate_t clk_gates[TPM_COUNT] =
+    { CLK_GATE_TPM0, CLK_GATE_TPM1 };
 
 void tpm_init(tpm_idx_t idx, uint32_t hz, isr_t handler)
 {
@@ -33,6 +35,8 @@ void tpm_init(tpm_idx_t idx, uint32_t hz, isr_t handler)
     uint32_t scr;
 
     assert(idx < TPM_COUNT);
+
+    clock_gate_enable(clk_gates[idx]);
 
     mod = CPU_HZ / hz;
 
