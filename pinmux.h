@@ -22,6 +22,16 @@ enum {
     PIN_FUNC_GPIO = 1,
 };
 
+static inline port_t port_from_gpio(gpio_t gpio)
+{
+    return gpio >> 5;
+}
+
+static inline port_t pin_from_gpio(gpio_t gpio)
+{
+    return gpio & 0x1f;
+}
+
 void pinmux_set_function(gpio_t gpio, pin_func_t func);
 
 #endif

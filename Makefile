@@ -18,6 +18,7 @@ SOURCES:= \
 		_startup.c \
 		clock.c \
 		interrupts.c \
+		gpio.c \
 		main.c \
 		pinmux.c \
 		tpm.c \
