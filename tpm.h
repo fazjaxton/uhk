@@ -19,6 +19,7 @@
 #define __TPM_H
 
 #include <stdint.h>
+#include <interrupts.h>
 
 typedef uint8_t tpm_idx_t;
 enum {
