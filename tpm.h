@@ -32,5 +32,6 @@ enum {
 void tpm_init(tpm_idx_t idx, uint32_t hz, isr_t handler);
 void tpm_enable(tpm_idx_t idx);
 void tpm_disable(tpm_idx_t idx);
+void tpm_isr_first(tpm_idx_t idx);
 
 #endif

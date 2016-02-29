@@ -87,3 +87,10 @@ void tpm_disable(tpm_idx_t idx)
     assert(idx < TPM_COUNT);
     tpm_regs[idx]->status_ctrl &= ~(0x3 << TPM_SC_CMOD);
 }
+
+void tpm_isr_first(tpm_idx_t idx)
+{
+    assert(idx < TPM_COUNT);
+    /* Clear interrupt */
+    tpm_regs[idx]->status_ctrl |= (1 << TPM_SC_TOF);
+}
