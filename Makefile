@@ -20,6 +20,7 @@ SOURCES:= \
 		interrupts.c \
 		gpio.c \
 		main.c \
+		matrix.c \
 		pinmux.c \
 		tpm.c \
 
